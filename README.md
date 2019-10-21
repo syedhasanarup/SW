@@ -1,9 +1,9 @@
-#Arup Stem Workshop
+# Arup Stem Workshop
 
 Hello and welcome to this workshop hosted by Arup.
 
-##Part 1:
-###Introduction to the IoT
+## Part 1:
+### Introduction to the IoT
 
 IoT stands for Internet of Things. A concept where everything is connected to the internet, from smart devices to your everyday appliances.
 
@@ -14,21 +14,21 @@ But it gets even better, it could buy it for you so you're always stocked!
 
 Now lets take this up a notch, smart fridges, imagine never having to worry about having enough milk in the fridge because your fridge will buy it for you.
 
-###The challenge
+### The challenge
 
 STEM buildings limited has approached Arup with a new and interesting project idea! They want to develop a system that can control meeting room lights from any location.
 
 As a innovative firm Arup has opted to use the IoT to solve this problem and has chosen your team to get the job done.
 
-###Fundamental requirements
-##Part 2:
-###Design and plan
+### Fundamental requirements
+## Part 2:
+### Design and plan
 The first step in going to be figuring out how our solution is going to work,
-###Purchasing parts
+### Purchasing parts
 What you need:
 
-##Part 3:
-###Software development
+## Part 3:
+### Software development
 Lets begin by writing some code!
 
 Press the windows key on your keyboard, type cmd and press the return key.

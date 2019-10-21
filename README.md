@@ -7,18 +7,23 @@ Hello and welcome to this workshop hosted by Arup.
 
 IoT stands for Internet of Things. A concept where everything is connected to the internet, from smart devices to your everyday appliances.
 
-So why would you want to connect everything to the internet? Lets say you're using your favourite pen, writing a all your best ideas down. Just as you get to your last sentence, your ink runs out!!!
-if there was only a way that you could know when it was about to run out so you could buy a new pen before hand. IoT solves that problem. You could add a small connected sensor in your pen that would send a message to the internet letting you know via your favourite app that your pen is about to run out!
+So why would you want to connect everything to the internet?
 
-But it gets even better, it could buy it for you so you're always stocked!
+Imagine the amount of Energy consumed when you leave a room and forget to turn off the lights. Or imagine you travel to somewhere really nice and far away, but suddenly you remember you didn't turn off your heater or even worse you forgot to lock your front door!
 
-Now lets take this up a notch, smart fridges, imagine never having to worry about having enough milk in the fridge because your fridge will buy it for you.
+ Let's say you're using your favourite pen, writing all your best ideas down. Just as you get to your last sentence, your ink runs out!!!
+
+If there was only a way that you could communicate with these devices from where ever you are and be able to get a notification as to the current state of your front door, or the room temperature in your house right now. You could add a connected sensor that could send a message to the internet letting you know via your favourite app that your if your front door is open and the current temperature of your bedroom.
+
+But it gets even better, you could send a command to turn the heating off and lock the front door!
+
+Now lets take this up a notch, smart fridges, smart stationary, imagine never having to worry about having enough milk in the fridge because your fridge will buy it for you.
 
 ### The challenge
 
-STEM buildings limited has approached Arup with a new and interesting project idea! They want to develop a system that can control meeting room lights from any location.
+ STEM buildings limited has approached Arup with a new and interesting project idea! They want to develop a system that can control meeting room lights from any location.
 
-As a innovative firm Arup has opted to use the IoT to solve this problem and has chosen your team to get the job done.
+Arup as a sustainable company is very big on energy savings and creating sustainable environments. As an innovative firm, Arup has opted to use the IoT to solve this problem and has chosen your team to get the job done.
 
 ### Fundamental requirements
 ## Part 2:
@@ -26,12 +31,24 @@ As a innovative firm Arup has opted to use the IoT to solve this problem and has
 The first step in going to be figuring out how our solution is going to work,
 ### Purchasing parts
 What you need:
+ - Breadboard
+ - Jumper Cables
+ - LEDs
+ - Switch
+ - Wi-Fi Enabled Microprocessor
+ - 1No. 220 Ohms Resistor
+
+ ![alt text](screenshots/220ohmsResistor.PNG "Title Text")
+
+ - 1No. 4.7k Ohms Resistor
+
+   ![alt text](screenshots/47kohmsResistor.PNG "Title Text")
 
 ## Part 3:
 ### Software development
 Lets begin by writing some code!
 
-Press the windows key on your keyboard, type cmd and press the return key.
+Press the Windows key on your keyboard, type cmd and press the return key.
 
 This window is called the command line or the terminal
 

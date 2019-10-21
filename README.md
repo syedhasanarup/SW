@@ -2,7 +2,7 @@
 
 Hello and welcome to this workshop hosted by Arup.
 
-##Part 1: 
+##Part 1:
 ###Introduction to the IoT
 
 IoT stands for Internet of Things. A concept where everything is connected to the internet, from smart devices to your everyday appliances.
@@ -20,11 +20,13 @@ STEM buildings limited has approached Arup with a new and interesting project id
 
 As a innovative firm Arup has opted to use the IoT to solve this problem and has chosen your team to get the job done.
 
-###Fundamental requirements 
+###Fundamental requirements
 ##Part 2:
 ###Design and plan
-The first step in going to be figuring out how our solution is going to work, 
+The first step in going to be figuring out how our solution is going to work,
 ###Purchasing parts
+What you need:
+
 ##Part 3:
 ###Software development
 Lets begin by writing some code!
@@ -60,7 +62,7 @@ The editor will look like this
 
 ![alt text](screenshots/ArduinoIDE.PNG "Title Text")
 
-The first bit of code we can see are the include statements, which point to libraries our code will need to work. 
+The first bit of code we can see are the include statements, which point to libraries our code will need to work.
 
 
 ###Hardware development

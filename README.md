@@ -11,6 +11,8 @@ So why would you want to connect everything to the internet?
 
 Imagine the amount of Energy consumed when you leave a room and forget to turn off the lights. Or imagine you travel to somewhere really nice and far away, but suddenly you remember you didn't turn off your heater or even worse you forgot to lock your front door!
 
+ Let's say you're using your favourite pen, writing all your best ideas down. Just as you get to your last sentence, your ink runs out!!!
+
 If there was only a way that you could communicate with these devices from where ever you are and be able to get a notification as to the current state of your front door, or the room temperature in your house right now. You could add a connected sensor that could send a message to the internet letting you know via your favourite app that your if your front door is open and the current temperature of your bedroom.
 
 But it gets even better, you could send a command to turn the heating off and lock the front door!
@@ -40,7 +42,7 @@ What you need:
 
  - 1No. 4.7k Ohms Resistor
 
- ![alt text](screenshots/47kohmsResistor.PNG "Title Text")
+   ![alt text](screenshots/47kohmsResistor.PNG "Title Text")
 
 ## Part 3:
 ###Hardware development
@@ -121,4 +123,3 @@ To see what your micro-controller is doing, open the `Serial Monitor` by pressin
 If you click the button on your circuit, your LED will should turn on. 
 ###Extra credit
 So now we can control our LED remotely. What can you change to your code to control another teams LED???
-

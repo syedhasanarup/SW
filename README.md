@@ -43,6 +43,22 @@ What you need:
  ![alt text](screenshots/47kohmsResistor.PNG "Title Text")
 
 ## Part 3:
+###Hardware development
+
+Using the components you got in **part 2** build the following circuit
+
+![alt text](screenshots/schematic.PNG "Title Text")
+
+- Push the micro-controller into the breadboard as shown in the image above, line up pin **D0** with **I49** and pin **Vin** with **B64** 
+- Place the 220 ohm resistor between pin **J51** on the bread board and the blue rail
+- Place the **long leg** of the LED in the blue rail and the **short** leg in pin **J62**
+- Align the button switch so that its fits between **E37** and **F39**
+- Place the 4.7 Kohm resistor between pins **A39** and **A58**
+- Place a jumper cable between pin **A37** and **A59**
+- Place a jumper cable between pin **J39** and **J56**
+
+If you've done this correctly, when the code uploads to the micro-controller you should be able to turn your LED on and off.
+
 ### Software development
 Lets begin by writing some code!
 
@@ -67,9 +83,16 @@ git clone https://gitlab.arup.com/Syed.Hasan/SW.git
 cd SW
 ```
 
-Open the code using the following command
+If you type this, it should list all the files that have been cloned from the repository
+```cmd
+dir
+```
+![alt text](screenshots/dir.PNG "Title Text")
+
+You should see a folder called code, let's go into that folder and open our code in the Arduino IDE
 
 ```cmd
+cd code
 start code.ino
 ```
 
@@ -77,12 +100,25 @@ The editor will look like this
 
 ![alt text](screenshots/ArduinoIDE.PNG "Title Text")
 
-The first bit of code we can see are the include statements, which point to libraries our code will need to work.
+Scroll through the code and enter in the correct details as described in the points below
+- For our device to connect to our server, we have to provide it with the Wi-Fi credentials and the server IP address. 
+Fill in the details as shown on the board
+- Scroll down to the variable ``teamName`` and enter your teamName, This will tell your micro-controller who's light to control
 
+Our code should now be ready to compile and upload to the micro-controller.
+We need to tell out IDE what micro-controller we are using, to do this click on ``Tools > Board > NodeMCU 1.0 (ESP12-E Module)``.
+We also need to tell the IDE which USB port or communication(COM) port to use, since our computer has multiple USB ports we need to make sure we select the correct one.
+It will most likely by a number greater than 10, so now click on ``Tools > Port > `` and select an the COM port that you think is correct.
 
-###Hardware development
+If you selected the correct COM port we should be ready to do the last step, click on the green arrow pointing to the right, if you hover over it, it should say ``Upload``.
+
+In the black window at the bottom of the IDE, you will now see some messages about the compilation and code upload. Once the upload is complete a message on the blue bar will say ``Done uploading`` and your micro-controller will now begin to work.
+
 ##Part 4:
 ###Testing
-###Extra credit
+To see what your micro-controller is doing, open the `Serial Monitor` by pressing the key `Ctrl+Shift+M`.
 
-The first group to turn off the LEDs in another group wins the challenge!!
+If you click the button on your circuit, your LED will should turn on. 
+###Extra credit
+So now we can control our LED remotely. What can you change to your code to control another teams LED???
+

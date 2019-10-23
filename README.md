@@ -101,7 +101,7 @@ start code.ino
 
 The editor will look like this
 
-![alt text](screenshots/ArduinoIDE.PNG "Title Text")
+![alt text](screenshots/ArduinoIDE.PNG?raw=true "Title Text")
 
 If you want to understand the code a little more, spend some time reading the comments, or you can get straight to the task as fill in the correct variables
 

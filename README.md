@@ -125,10 +125,12 @@ If you selected the correct COM port we should be ready to do the last step, cli
 
 In the black window at the bottom of the IDE, you will now see some messages about the compilation and code upload. Once the upload is complete a message on the blue bar will say ``Done uploading`` and your micro-controller will now begin to work.
 
+
 ## Part 4:
 ### Testing
 To see what your micro-controller is doing, open the `Serial Monitor` by pressing the key `Ctrl+Shift+M`.
 
-If you click the button on your circuit, your LED will should turn on. 
+If you click the button on your circuit, your LED will should turn on.
+ 
 ### Extra credit
 So now we can control our LED remotely. What can you change to your code to control another teams LED???

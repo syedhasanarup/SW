@@ -45,17 +45,18 @@ What you need:
    ![alt text](screenshots/47kohmsResistor.PNG "Title Text")
 
 ## Part 3:
-###Hardware development
+### Hardware development
 
 Using the components you got in **part 2** build the following circuit
 
 ![alt text](screenshots/schematic.PNG "Title Text")
 
-- Push the micro-controller into the breadboard as shown in the image above, line up pin **D0** with **I49** and pin **Vin** with **B64** 
+- Push the micro-controller into the breadboard as shown in the image above, line up pin **D0** of the controller with **I49** of the breadboard and pin **Vin** of the controller with **B63** of the breadboard (push hard because its a tight fit) 
 - Place the 220 ohm resistor between pin **J51** on the bread board and the blue rail
 - Place the **long leg** of the LED in the blue rail and the **short** leg in pin **J62**
-- Align the button switch so that its fits between **E37** and **F39**
-- Place the 4.7 Kohm resistor between pins **A39** and **A58**
+- Align the button switch so that its fits between **E35** and **F37**
+- Place the 4.7 Kohm resistor between pins **C37** and **C41**
+- Place a jumper cable between pin **A41** and **A58**
 - Place a jumper cable between pin **A37** and **A59**
 - Place a jumper cable between pin **J39** and **J56**
 
@@ -102,24 +103,32 @@ The editor will look like this
 
 ![alt text](screenshots/ArduinoIDE.PNG "Title Text")
 
+If you want to understand the code a little more, spend some time reading the comments, or you can get straight to the task as fill in the correct variables
+
 Scroll through the code and enter in the correct details as described in the points below
-- For our device to connect to our server, we have to provide it with the Wi-Fi credentials and the server IP address. 
-Fill in the details as shown on the board
+- For our device to connect to our server, we have to provide it with the Wi-Fi credentials and the server IP address.
+Look for the variables called `ssid`, `password`, `mqtt_server`, enter the correct details in the speach marks.
+These will tell our device what wifi to connect to and the server we need to talk to in order to control our meeting room lights
+
 - Scroll down to the variable ``teamName`` and enter your teamName, This will tell your micro-controller who's light to control
 
 Our code should now be ready to compile and upload to the micro-controller.
 We need to tell out IDE what micro-controller we are using, to do this click on ``Tools > Board > NodeMCU 1.0 (ESP12-E Module)``.
 We also need to tell the IDE which USB port or communication(COM) port to use, since our computer has multiple USB ports we need to make sure we select the correct one.
-It will most likely by a number greater than 10, so now click on ``Tools > Port > `` and select an the COM port that you think is correct.
+Lets start by checking which ones are currently listed, do this by clicking on ``Tools > Port > `` and take a note of the numbers (before you take note, make sure your device is **NOT** plugged in).
+
+After taking note you may now plug in your device to a USB port and check the comport list again by clicking on ``Tools > Port > ``
+
+Did you see a new COM port? if yes click on that COM port, if not raise your hand and someone will try and help you.
 
 If you selected the correct COM port we should be ready to do the last step, click on the green arrow pointing to the right, if you hover over it, it should say ``Upload``.
 
 In the black window at the bottom of the IDE, you will now see some messages about the compilation and code upload. Once the upload is complete a message on the blue bar will say ``Done uploading`` and your micro-controller will now begin to work.
 
-##Part 4:
-###Testing
+## Part 4:
+### Testing
 To see what your micro-controller is doing, open the `Serial Monitor` by pressing the key `Ctrl+Shift+M`.
 
 If you click the button on your circuit, your LED will should turn on. 
-###Extra credit
+### Extra credit
 So now we can control our LED remotely. What can you change to your code to control another teams LED???

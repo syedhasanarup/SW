@@ -7,20 +7,25 @@
  *  we also have the IP address of our mqtt server
  *  an IP address is like the postcode for your network device
  */
-const char* ssid = "ReplaceMeWithTheWifiName";
-const char* password = "ReplaceMeWithTheWifiPassword";
-const char* mqtt_server = "ReplaceMeWithTheIPAddress";
+const char* ssid = "Replace me with the wifi name";
+const char* password = "Replace me with the wifi password";
+const char* mqtt_server = "Replace me with the server IP address";
 
 /*  Here are some more variables we need:
  *  espClient   >   a reference for the Wi-Fi network
  *  client      >   a reference to our mqtt client
  *  msg         >   a reference for any messages we want to send
  *  buttonValue >   a reference for the value we read from our button
+ *  teamName    >   a reference to your teams name
  */
 WiFiClient espClient;
 PubSubClient client(espClient);
 char msg[50];
 int buttonValue = 0;
+String buildingName = "Arup/London/no8/";
+String teamName = "yourTeamNameHere";
+bool ledState = false;
+
 //****************************************************************************************************************//
 
 //*************setup_wifi connects the PLC to the network and prints it's allocated IP address*************//
@@ -48,7 +53,7 @@ void setup_wifi() {
 }
 //*********************************************************************************************************//
 
-//*************callback runs everytime a message is recieved from the broker*************//
+//*************callback runs every time a message is received from the broker*************//
 void callback(char* topic, byte* payload, unsigned int length) {
   Serial.print("Message arrived [");
   Serial.print(topic);
@@ -58,22 +63,21 @@ void callback(char* topic, byte* payload, unsigned int length) {
   }
   Serial.println();
 
-  if(topic == "lightOn")
-  {
-    digitalWrite(16, HIGH);
-  }
-  if(topic == "lightOff")
-  {
-    digitalWrite(16, LOW);
-  }
+  String onTopic = buildingName + teamName + "/lightOn";
+  String offTopic = buildingName + teamName + "/lightOff";
 
-  // Switch on the LED if an 1 was received as first character
-  if ((char)payload[0] == '1') {
-    digitalWrite(BUILTIN_LED, LOW);   // Turn the LED on (Note that LOW is the voltage level
-    // but actually the LED is on; this is because
-    // it is active low on the ESP-01)
-  } else {
-    digitalWrite(BUILTIN_LED, HIGH);  // Turn the LED off by making the voltage HIGH
+  if(strcmp(topic, offTopic.c_str()) == 0)
+  {
+    digitalWrite(4, LOW);
+    Serial.println("off");
+    ledState = false;
+  }
+  
+  if(strcmp(topic, onTopic.c_str()) == 0)
+  {
+    digitalWrite(4, HIGH);
+    Serial.println("on");
+    ledState = true;
   }
 
 }
@@ -91,11 +95,12 @@ void reconnect() {
     if (client.connect(clientId.c_str())) {
       Serial.println("connected");
       // Once connected, publish an announcement...
-      client.publish("outTopic", "hello world");
       // ... and resubscribe
-      client.subscribe("inTopic");
-      client.subscribe("lightOn");
-      client.subscribe("lightOff");
+      String SubscribeLightOnTopic = buildingName + teamName + "/lightOn";
+      String SubscribeLightOffTopic = buildingName + teamName + "/lightOff";
+
+      client.subscribe(SubscribeLightOffTopic.c_str());
+      client.subscribe(SubscribeLightOnTopic.c_str());
     } else {
       Serial.print("failed, rc=");
       Serial.print(client.state());
@@ -107,14 +112,14 @@ void reconnect() {
 }
 //*************setup runs when the PLC starts************//
 void setup() {
-  pinMode(16, OUTPUT);     // Initialize the BUILTIN_LED pin as an output
+  pinMode(4, OUTPUT);     // Initialize the BUILTIN_LED pin as an output
   pinMode(BUILTIN_LED, OUTPUT);     // Initialize the BUILTIN_LED pin as an output
   Serial.begin(115200);
   setup_wifi();
   client.setServer(mqtt_server, 1883);
   client.setCallback(callback);
 }
-//*************loop runs continuosly forever*************//
+//*************loop runs continuously forever*************//
 void loop() {
 
   /* Here we can check if we need to reconnect */
@@ -126,15 +131,24 @@ void loop() {
   /* So now we are going to check what the value of the button is */
   buttonValue = digitalRead(14);
 
-  /* If the button value is 1 lets do something */
+  /* If the button value is pressed lets do something */
   if (buttonValue == 1)
   {
-    char buf[4];
-    itoa (buttonValue, buf, 10);
-    client.publish("lightOn", buf);
-    delay(500);
+    /*If the led is true (ie On) lets turn it Off*/
+    if (ledState)
+    {
+      String publishTopic = buildingName + teamName + "/lightOff";
+      client.publish(publishTopic.c_str(), "0");
+      delay(500);
+    }
+    /*If the led is false (ie Off) lets turn it On*/
+    else
+    {
+      String publishTopic = buildingName + teamName + "/lightOn";
+      client.publish(publishTopic.c_str(), "1");
+      delay(500);
+    }
   }
   delay(1);
-    //client.publish("outTopic", msg);
 
 }

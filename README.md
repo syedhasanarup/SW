@@ -38,7 +38,7 @@ What you need:
  - Wi-Fi Enabled Microprocessor
  - 1No. 220 Ohms Resistor
 
- ![alt text](screenshots/220ohmsResistor.PNG "Title Text")
+ ![alt text](screenshots/220ohmsResistor.PNG?raw=true "Title Text")
 
  - 1No. 4.7k Ohms Resistor
 
@@ -82,7 +82,7 @@ You've just created a folder called "project" using ```mkdir project``` and you'
 
 Now we're going to download the Arduino project from our code repository using the command
 ```cmd
-git clone https://gitlab.arup.com/Syed.Hasan/SW.git
+git clone https://www.github.com/syedhasanarup/SW.git
 cd SW
 ```
 
